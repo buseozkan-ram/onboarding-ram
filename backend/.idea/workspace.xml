@@ -4,16 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da4e30de-8780-464e-b57e-be1a060d5cc2" name="Changes" comment="" />
+    <list default="true" id="da4e30de-8780-464e-b57e-be1a060d5cc2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/LoginStatus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/LoginStatus.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/places/MapView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/places/MapView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/places/PlaceForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/places/PlaceForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/places/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/places/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/hooks/useFetch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/hooks/useFetch.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -21,9 +35,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2zrweDeQNYt9gofgBqGFReOis3L" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,9 +48,14 @@
     "Maven.demo [clean].executor": "Run",
     "Maven.demo [compile].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.RamBuseApplication.executor": "Run",
-    "last_opened_file_path": "/Users/buseozkan/Downloads/demo",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/buseozkan/Downloads/ram-tracking-onboarding/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1752502592545</updated>
       <workItem from="1752502593644" duration="566000" />
+      <workItem from="1752503891010" duration="2425000" />
     </task>
     <servers />
   </component>
