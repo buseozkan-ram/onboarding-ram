@@ -1,21 +1,27 @@
 import { useContext } from "react";
 import { AuthContext, type IAuthContext } from "react-oauth2-code-pkce";
+import Main from "./Main";
+import Button from "./places/Button";
 
 function LoginStatus() {
     const auth: IAuthContext = useContext(AuthContext);
 
     return (
         <div>
-            {auth.token ? (
+            {!auth.token ? (
                 <div>
-                    <p>Logged in</p>
-                    <p>{auth.token}</p>
-                    <button onClick={() => auth.logOut()}>Logout</button>
+                    <Button onClick={() => auth.logIn()} colour={"bg-blue-500"}>
+                        Login
+                    </Button>
                 </div>
             ) : (
                 <div>
-                    <p>Not logged in</p>
-                    <button onClick={() => auth.logIn()}>Login</button>
+                    <Button onClick={() => auth.logOut()} colour={"bg-blue-500"}>
+                        Logout
+                    </Button>
+                    <div className="mt-4 flex flex-col items-start gap-4">
+                        <Main authToken={auth.token} />
+                    </div>
                 </div>
             )}
         </div>

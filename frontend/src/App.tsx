@@ -1,11 +1,9 @@
 import './App.css'
+import React from 'react'
 import { AuthProvider } from 'react-oauth2-code-pkce'
 import type { TAuthConfig } from 'react-oauth2-code-pkce'
 import LoginStatus from './components/LoginStatus'
-import PlacesList from './components/places/PlacesList'
-import PlaceForm from './components/places/PlaceForm'
-import MapView from './components/places/MapView'
-import React, { useState } from 'react'
+import Header from './components/places/Header'
 
 function App() {
 
@@ -20,31 +18,10 @@ function App() {
     refreshTokenExpiresIn: 600000
   }
 
-  const [refreshFlag, setRefreshFlag] = useState(false);
-  const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
-
-  const handlePlaceAdded = () => {
-    setRefreshFlag(!refreshFlag);
-  };
-
-  const toggleView = () => {
-    setViewMode(viewMode === 'list' ? 'map' : 'list');
-  };
-
   return (
     <AuthProvider authConfig={authConfig}>
+      <Header />
       <LoginStatus />
-      <button onClick={toggleView}>
-        Switch to {viewMode === 'list' ? 'Map' : 'List'} View
-      </button>
-      {viewMode === 'list' ? (
-        <>
-          <PlacesList key={refreshFlag.toString()} />
-          <PlaceForm onPlaceAdded={handlePlaceAdded} />
-        </>
-      ) : (
-        <MapView key={refreshFlag.toString()} />
-      )}
     </AuthProvider>
   )
 }

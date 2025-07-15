@@ -1,24 +1,39 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import type { IAuthContext } from "react-oauth2-code-pkce";
 import { AuthContext } from "react-oauth2-code-pkce";
-import type { Place } from "./api";
 import { addPlace } from "./api";
-import useFetch from "../../hooks/useFetch";
+import type { PlaceDTO } from "../../types/PlaceDTO";
 
 interface PlaceFormProps {
-  onPlaceAdded: () => void;
+  authToken: string;
+  onPlaceAdd: () => void;
   initialLatitude?: number;
   initialLongitude?: number;
 }
 
-const PlaceForm: React.FC<PlaceFormProps> = ({ onPlaceAdded, initialLatitude, initialLongitude }) => {
+const PlaceForm:  React.FC<PlaceFormProps> = ({
+  initialLatitude,
+  initialLongitude,
+  onPlaceAdd,
+}) => {
   const auth: IAuthContext = useContext(AuthContext);
   const [name, setName] = useState("");
-  const [latitude, setLatitude] = useState(initialLatitude?.toString() || "");
-  const [longitude, setLongitude] = useState(initialLongitude?.toString() || "");
+  const [latitude, setLatitude] = useState(
+    initialLatitude !== undefined ? initialLatitude.toString() : ""
+  );
+  const [longitude, setLongitude] = useState(
+    initialLongitude !== undefined ? initialLongitude.toString() : ""
+  );
   const [error, setError] = useState<string | null>(null);
 
-  const { refetch } = useFetch<Place[]>("", { token: auth.token }); // dummy to get refetch
+  useEffect(() => {
+    if (initialLatitude !== undefined) {
+      setLatitude(initialLatitude.toString());
+    }
+    if (initialLongitude !== undefined) {
+      setLongitude(initialLongitude.toString());
+    }
+  }, [initialLatitude, initialLongitude]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,19 +41,17 @@ const PlaceForm: React.FC<PlaceFormProps> = ({ onPlaceAdded, initialLatitude, in
       setError("All fields are required");
       return;
     }
-    const newPlace: Place = {
+    const newPlace: PlaceDTO = {
       name,
       latitude: parseFloat(latitude),
       longitude: parseFloat(longitude),
+      notes: ""
     };
     try {
       await addPlace(auth, newPlace);
-      onPlaceAdded();
+      onPlaceAdd();
       setName("");
-      setLatitude("");
-      setLongitude("");
       setError(null);
-      refetch();
     } catch (err) {
       setError((err as Error).message);
     }
@@ -70,6 +83,7 @@ const PlaceForm: React.FC<PlaceFormProps> = ({ onPlaceAdded, initialLatitude, in
             step="any"
             value={latitude}
             onChange={(e) => setLatitude(e.target.value)}
+            readOnly
           />
         </label>
       </div>
@@ -81,6 +95,7 @@ const PlaceForm: React.FC<PlaceFormProps> = ({ onPlaceAdded, initialLatitude, in
             step="any"
             value={longitude}
             onChange={(e) => setLongitude(e.target.value)}
+            readOnly
           />
         </label>
       </div>

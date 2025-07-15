@@ -1,6 +1,6 @@
 import type { IAuthContext } from "react-oauth2-code-pkce";
 
-const API_BASE_URL = "http://localhost:8080"; // Adjust backend URL if needed
+const API_BASE_URL = "http://localhost:8080"; 
 
 export interface Place {
   id?: number;
